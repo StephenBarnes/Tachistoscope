@@ -6,10 +6,10 @@
     <title>Tachistoscope</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;700&family=Space+Grotesk:wght@400;500;700&display=swap"
-        rel="stylesheet"
-      />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -46,6 +46,15 @@
               <output id="delayOutput" for="delayInput">250 ms</output>
             </div>
           </label>
+
+          <label class="field">
+            <span class="field-label">Order</span>
+            <select id="orderModeSelect">
+              <option value="normal">Normal order</option>
+              <option value="random">Random order</option>
+              <option value="reverse">Reversed order</option>
+            </select>
+          </label>
         </div>
 
         <label class="field field-textarea">
@@ -56,6 +65,36 @@
             placeholder="Enter one item per line"
           ></textarea>
         </label>
+
+        <label class="toggle-row" for="useIndexInput">
+          <span>
+            <span class="field-label">Use index list</span>
+            <span class="toggle-help">Add a paired list and show it before, after, or alongside each main item.</span>
+          </span>
+          <input id="useIndexInput" type="checkbox" />
+        </label>
+
+        <div class="index-panel hidden" id="indexPanel">
+          <div class="panel-grid">
+            <label class="field">
+              <span class="field-label">Index placement</span>
+              <select id="indexModeSelect">
+                <option value="before">Index before main item</option>
+                <option value="after">Index after main item</option>
+                <option value="alongside">Index alongside main item</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="field field-textarea">
+            <span class="field-label">Index lines</span>
+            <textarea
+              id="indexInput"
+              spellcheck="false"
+              placeholder="Enter one index item per line"
+            ></textarea>
+          </label>
+        </div>
 
         <div class="footer-row">
           <p class="status-text" id="sequenceMeta">0 lines ready</p>
@@ -70,7 +109,10 @@
         </div>
 
         <div class="line-stage">
-          <p class="sequence-line" id="sequenceLine"></p>
+          <div class="sequence-pair mode-single" id="sequencePair">
+            <p class="sequence-index hidden" id="sequenceIndex"></p>
+            <p class="sequence-line" id="sequenceLine"></p>
+          </div>
         </div>
 
         <div class="playback-hint" id="playbackHint">

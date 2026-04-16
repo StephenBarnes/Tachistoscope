@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tachistoscope</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+        rel="stylesheet"
+      />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="control-panel" id="controlPanel">
+        <div class="hero">
+          <p class="eyebrow">Single-page tachistoscope</p>
+          <h1>Train ordered recall at speed.</h1>
+          <p class="intro">
+            Paste any sequence of lines, choose a delay, and run through them one
+            at a time in a full-screen display.
+          </p>
+        </div>
+
+        <div class="panel-grid">
+          <label class="field">
+            <span class="field-label">Preset sequences</span>
+            <select id="presetSelect">
+              <option value="custom">Custom</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span class="field-label">Delay</span>
+            <div class="range-row">
+              <input
+                id="delayInput"
+                type="range"
+                min="20"
+                max="2000"
+                step="10"
+                value="250"
+              />
+              <output id="delayOutput" for="delayInput">250 ms</output>
+            </div>
+          </label>
+        </div>
+
+        <label class="field field-textarea">
+          <span class="field-label">Lines to display</span>
+          <textarea
+            id="linesInput"
+            spellcheck="false"
+            placeholder="Enter one item per line"
+          ></textarea>
+        </label>
+
+        <div class="footer-row">
+          <p class="status-text" id="sequenceMeta">0 lines ready</p>
+          <button class="play-button" id="playButton" type="button">Play</button>
+        </div>
+      </section>
+
+      <section class="playback-screen hidden" id="playbackScreen" aria-live="polite">
+        <div class="playback-chrome">
+          <p class="playback-meta" id="playbackMeta">Paused</p>
+          <button class="ghost-button" id="stopButton" type="button">Stop</button>
+        </div>
+
+        <div class="line-stage">
+          <p class="sequence-line" id="sequenceLine"></p>
+        </div>
+
+        <div class="playback-hint" id="playbackHint">
+          <span><kbd>Space</kbd> pauses</span>
+          <span><kbd>Escape</kbd> exits</span>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

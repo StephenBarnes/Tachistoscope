@@ -32,6 +32,7 @@ const presets = {
       "Saturn",
       "Uranus",
       "Neptune",
+      "Pluto",
     ],
   },
   english_alphabet: {
@@ -110,6 +111,16 @@ const presets = {
       "A","B","C","D","E","F","G","H","I","J",
       "K","L","M","N","O","P","Q","R","S","T",
       "U","V","W","X","Y","Z",
+    ],
+  },
+
+  song_lyrics: {
+    label: "Song lyrics",
+    lines: [
+      "Never","gonna","give","you","up",
+      "Never","gonna","let","you","down",
+      "Never","gonna","run","around",
+      "And","desert","you",
     ],
   },
 };
